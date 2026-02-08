@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Distance 💕</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating hearts -->
+  <div class="hearts"></div>
+
+  <h1>Even across the world, you’re my home 💖<br/>
+    Day 1 of 5
+  </h1>
+
+  <div id="map"></div>
+
+  <p id="distance"></p>
+
+  <div class="love-box">
+    <p>Egypt 🇪🇬 ↔ Spain 🇪🇸</p>
+    <p>No matter the miles, my heart always finds you 💕</p>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    // Coordinates
+    const egypt = [26.8206, 30.8025];
+    const spain = [40.4637, -3.7492];
+
+    // Create map
+    const map = L.map('map').setView([35, 10], 3);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Markers
+    L.marker(egypt).addTo(map).bindPopup("Egypt 🇪🇬");
+    L.marker(spain).addTo(map).bindPopup("Spain 🇪🇸");
+
+    // Cute dashed line
+    L.polyline([egypt, spain], {
+      color: '#ff5c8a',
+      weight: 4,
+      dashArray: '8, 8'
+    }).addTo(map);
+
+    // Distance
+    const distanceKm = (map.distance(egypt, spain) / 1000).toFixed(0);
+
+    document.getElementById("distance").innerText =
+      `Only ${distanceKm} km between us… but zero between our hearts 💘`;
+  </script>
+
+</body>
+</html>

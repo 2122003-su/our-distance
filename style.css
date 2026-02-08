@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffe4ec, #fff7fa);
+  color: #444;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #ff5c8a;
+  font-size: 2.4rem;
+  margin-top: 10px;
+}
+
+#map {
+  height: 400px;
+  width: 90%;
+  max-width: 800px;
+  margin: 25px auto;
+  border-radius: 18px;
+  box-shadow: 0 15px 30px rgba(255, 92, 138, 0.25);
+}
+
+#distance {
+  font-size: 1.3rem;
+  color: #ff5c8a;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.love-box {
+  background: white;
+  display: inline-block;
+  padding: 18px 28px;
+  border-radius: 22px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+/* Floating hearts */
+.hearts::before,
+.hearts::after {
+  content: "💖 💕 💗 💓 💞";
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: -10px;
+  font-size: 24px;
+  animation: float 12s linear infinite;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.hearts::after {
+  animation-delay: 6s;
+}
+
+@keyframes float {
+  from { transform: translateY(-10%); }
+  to { transform: translateY(110%); }
+}
